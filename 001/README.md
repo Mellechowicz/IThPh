@@ -49,7 +49,6 @@ float next_velocity_1D(float coord, float vel, float dt);
 so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method).
  4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
  5. Change the integration method to:
-
     * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration)
     * [Runge-Kutta method (2nd or 4th order).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 
