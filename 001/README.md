@@ -41,7 +41,7 @@ In directory `IThPh/001/run` you will find two Python files
     * The mass is 1 ($m=1$).
 2. Derive the equation of motion from (1).
 3. Modify functions so that they represent the equations in (2).
-    *
+    
 ```c
 float next_coordinate_1D(float coord, float vel, float dt);
 float next_velocity_1D(float coord, float vel, float dt);
@@ -49,8 +49,8 @@ float next_velocity_1D(float coord, float vel, float dt);
    so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method).
 4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
 5. Change the integration method to:
-    * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration)
-    * [Runge-Kutta method (2nd or 4th order).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
+     * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration)
+     * [Runge-Kutta method (2nd or 4th order).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 
 ## Coupled oscillators
 ### Working with [`IThPh/001/solver/solver.c`](https://github.com/Mellechowicz/IThPh/blob/master/001/solver/solver.c) and [`IThPh/001/run/particles.py`](https://github.com/Mellechowicz/IThPh/blob/master/001/run/particles.py)
