@@ -21,7 +21,7 @@ gcc -pedantic -Wall -c -std=c23 -fPIC solver.c -o solver.o
 then 
 2. Then create the shared library `libsolver.so`:
 ```bash
-gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o && cd -
+gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o
 ```
 
 ## Python framework
