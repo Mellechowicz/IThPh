@@ -70,4 +70,4 @@ void next_velocity_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_vel, float d
  4. Modify the Lagrangian, the equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and each material point, respectively.
 
 ## Transfer workload and parallelization (optional)
-Modify the code so that Python code only defines the system, while the bulk of the code calculating EoM will be embedded in `libsolver.so`.
+Modify the code so that Python code only defines the system, while the bulk of the code calculating EoM will be embedded in `libsolver.so`. Good starting point is [https://www.openmp.org/](https://www.openmp.org/)
