@@ -53,12 +53,13 @@ deactivate
     * $k$ is the elastic constant. 
     * The mass is 1 ($m=1$). 
  2. Derive the equation of motion from (1). 
- 3. Modify functions so that they represent the equations in (2). 
+ 3. Modify functions so that they represent the equations in (2).
    ```c
    float next_coordinate_1D(float coord, float vel, float dt);
    float next_velocity_1D(float coord, float vel, float dt);
    ```
    so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method). 
+
  4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability. 
  5. Change the integration method to: 
     * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration) 
