@@ -1,72 +1,72 @@
 # Preparing workspace
 
 ## Downloading repository
-We start by cloning this git repository
+We start by cloning this `git` repository:
 ```bash
 git clone https://github.com/Mellechowicz/IThPh.git
 ```
-Now we can move to the directory and check the branch (`master`)
+Now move to the directory and check the branch (`master`)
 ```bash
 cd IThPh && git branch
 ```
-All files for this class are in directory "IThPh/001".
+All files for this class are in the directory "IThPh/001".
 
-## Compliling C library to a shared one
-In directory `IThPh/001/solver` we find te source file `solver.c`, containing functions we will work with. To compile the code we are using GCC (https://gcc.gnu.org/).
+## Compiling the C library to a shared one
+In directory `IThPh/001/solver` we find te source file `solver.c`, which contains functions we will work with. To compile the code we use GCC (https://gcc.gnu.org/).
 
-1. First we compile the source file `solve.c`:
+1. First compile the source file `solver.c`:
 ```bash
 gcc -pedantic -Wall -c -std=c23 -fPIC solver.c -o solver.o
 ```
 then 
-2. we create the shared library `libsolver.so`
+2. Then create the shared library `libsolver.so`:
 ```bash
 gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o && cd -
 ```
 
 ## Python framework
-In directory `IThPh/001/run` we find two Python files
+In directory `IThPh/001/run` you will find two Python files
  * `single_particle.py`
  * `particles.py`
 
 # Instructions
 
 ## Oscillator
-### Woriking with `IThPh/001/solver/solver.c` and `IThPh/001/run/single_particle.py`
+### Working with `IThPh/001/solver/solver.c` and `IThPh/001/run/single_particle.py`
 
-1. Calculate Lagrangian of a material point with a spring attached in 0. Assume:
-    * System has 1 dimension $x$.
-    * Spring is attached in $x=0$.
-    * $k$ - elastic constant.
-    * Mass is equal to 1 ($m=1$).
-2. Derive the equation of motion from 1.
-3. Modify functions
+1. Calculate the Lagrangian of a material point with a spring iwhose fixed end is at $x=0$. Assume:
+    * The system has one dimension $x$.
+    * The spring is attached at $x=0$.
+    * $k$ is the elastic constant.
+    * The mass is 1 ($m=1$).
+2. Derive the equation of motion from (1).
+3. Modify functions so that they represent the equations in (2).
     *
 ```c
 float next_coordinate_1D(float coord, float vel, float dt);
 float next_velocity_1D(float coord, float vel, float dt);
 ```
-   so they are calculating new coordinates and velocities using Euler method.
-4. Increase `dt` in `single_particle.py` and discuss the algorithm stability.
+   so they calculate new coordinates and velocities using Euler method.
+4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
 5. Change the integration method to:
     * Verlet
     * Runge-Kutta method (2nd or 4th order).
 
 ## Coupled oscillators
-### Woriking with `IThPh/001/solver/solver.c` and `IThPh/001/run/particles.py`
+### Working with `IThPh/001/solver/solver.c` and `IThPh/001/run/particles.py`
 
-1. Calculate Lagrangian of a series of material points attached with springs. Assume:
-    * Material points are organized with indices $i \in \{0, 1, ..., N-1\}$.
-    * Each point $i$ interacts with its neighbors - including first and last, i.e., $(i-1)~mod~N$ and $(i+1)~mod~N$.
-    * System has 2 dimensions $x$ and $y$.
-    * $k$ - elastic constant does not depend on the spring.
+1. Calculate the Lagrangian of a ring of material points connected by springs. Assume:
+    * Material points are indexed $i \in \{0, 1, ..., N-1\}$.
+    * Each point $i$ interacts with its neighborsim, including the first and last (i.e., $(i-1)~\text{mod}~N$ and $(i+1)~\text{mod}~N$).
+    * The system has 2 dimensions, $x$ and $y$.
+    * $k$ is the elastic constant and is the same for all springs.
     * All masses are equal to 1 ($m=1$).
-2. Derive the equation of motion from 1.
-3. Modify functions
+2. Derive the equation of motion from (1).
+3. Modify functions so that they represent the equations in (2).
     *
 ```c
-float next_coordinate_1D(float coord, float vel, float dt);
-float next_velocity_1D(float coord, float vel, float dt);
+void next_coordinate_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_coord, float dt); 
+void next_velocity_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_vel, float dt);
 ```
-4. Modify Lagrangian, Equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and material point respectively.
+4. Modify the Lagrangian, the equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and each material point, respectively.
 
