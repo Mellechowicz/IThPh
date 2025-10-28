@@ -32,9 +32,9 @@ In directory `IThPh/001/run` you will find two Python files
 # Instructions
 
 ## Oscillator
-### Working with `IThPh/001/solver/solver.c` and `IThPh/001/run/single_particle.py`
+### Working with [`IThPh/001/solver/solver.c`](https://github.com/Mellechowicz/IThPh/blob/master/001/solver/solver.c) and [`IThPh/001/run/single_particle.py`](https://github.com/Mellechowicz/IThPh/blob/master/001/run/single_particle.py)
 
-1. Calculate the Lagrangian of a material point with a spring iwhose fixed end is at $x=0$. Assume:
+1. Calculate the Lagrangian of a material point with a spring whose fixed end is at $x=0$. Assume:
     * The system has one dimension $x$.
     * The spring is attached at $x=0$.
     * $k$ is the elastic constant.
@@ -46,14 +46,14 @@ In directory `IThPh/001/run` you will find two Python files
 float next_coordinate_1D(float coord, float vel, float dt);
 float next_velocity_1D(float coord, float vel, float dt);
 ```
-   so they calculate new coordinates and velocities using Euler method.
+   so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method).
 4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
 5. Change the integration method to:
-    * Verlet
-    * Runge-Kutta method (2nd or 4th order).
+    * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration)
+    * [Runge-Kutta method (2nd or 4th order).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 
 ## Coupled oscillators
-### Working with `IThPh/001/solver/solver.c` and `IThPh/001/run/particles.py`
+### Working with [`IThPh/001/solver/solver.c`](https://github.com/Mellechowicz/IThPh/blob/master/001/solver/solver.c) and [`IThPh/001/run/particles.py`](https://github.com/Mellechowicz/IThPh/blob/master/001/run/particles.py)
 
 1. Calculate the Lagrangian of a ring of material points connected by springs. Assume:
     * Material points are indexed $i \in \{0, 1, ..., N-1\}$.
