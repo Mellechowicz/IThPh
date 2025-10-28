@@ -82,3 +82,11 @@ void next_velocity_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_vel, float d
 
 ## Transfer workload and parallelization (optional)
 Modify the code so that Python code only defines the system, while the bulk of the code calculating EoM will be embedded in `libsolver.so`. Good starting point is [https://www.openmp.org/](https://www.openmp.org/)
+
+# Versions
+This code was tested on Debian 13 using
+ * GCC 14.2.0,
+ * Python 3.13.5,
+ * numpy 2.2.4,
+ * matplotlib 3.10.1+dfsg1.
+
