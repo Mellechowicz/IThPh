@@ -1,7 +1,7 @@
 # Preparing workspace
 
 ## Downloading repository
-We start by cloning this `git` repository:
+Let's start by cloning this `git` repository:
 ```bash
 git clone https://github.com/Mellechowicz/IThPh.git
 ```
@@ -12,7 +12,7 @@ cd IThPh && git branch
 All files for this class are in the directory "IThPh/001".
 
 ## Compiling the C library to a shared one
-In directory `IThPh/001/solver` we find te source file `solver.c`, which contains functions we will work with. To compile the code we use GCC (https://gcc.gnu.org/).
+In directory `IThPh/001/solver` you can find the source file `solver.c`, which contains functions you will work with. To compile the code you can use GCC (https://gcc.gnu.org/).
 
 1. First compile the source file `solver.c`:
 ```bash
@@ -28,6 +28,17 @@ gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o
 In directory `IThPh/001/run` you will find two Python files
  * `single_particle.py`
  * `particles.py`
+
+Required external module are: `matplotlib` and `numpy`. As `matplotlib` requires `numpy`, you need only to install the first one using `pip`:
+```bash
+python3 -m venv venv_matplotlib # Create a virtual environment
+. venv_matplotlib/bin/activate  # Activate the virtual environment above
+pip3 install matplotlib         # Install matplotlib in the virtual environment
+```
+If, at any point, you wish to deactivate this `venv`, just run
+```bash
+deactivate
+```
 
 # Instructions
 
