@@ -41,7 +41,6 @@ In directory `IThPh/001/run` you will find two Python files
     * The mass is 1 ($m=1$).
  2. Derive the equation of motion from (1).
  3. Modify functions so that they represent the equations in (2).
-    
 ```c
 float next_coordinate_1D(float coord, float vel, float dt);
 float next_velocity_1D(float coord, float vel, float dt);
