@@ -57,7 +57,7 @@ float next_velocity_1D(float coord, float vel, float dt);
 
 1. Calculate the Lagrangian of a ring of material points connected by springs. Assume:
     * Material points are indexed $i \in \{0, 1, ..., N-1\}$.
-    * Each point $i$ interacts with its neighbors, including the first and last (i.e., $(i-1)\%N$ and $(i+1)\%N$).
+    * Each point $i$ interacts with its neighbors, including the first and last (i.e., $(i-1)\\%N$ and $(i+1)\\%N$).
     * The system has 2 dimensions, $x$ and $y$.
     * $k$ is the elastic constant and is the same for all springs.
     * All masses are equal to 1 ($m=1$).
