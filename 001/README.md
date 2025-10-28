@@ -34,21 +34,21 @@ In directory `IThPh/001/run` you will find two Python files
 ## Oscillator
 ### Working with [`IThPh/001/solver/solver.c`](https://github.com/Mellechowicz/IThPh/blob/master/001/solver/solver.c) and [`IThPh/001/run/single_particle.py`](https://github.com/Mellechowicz/IThPh/blob/master/001/run/single_particle.py)
 
-1. Calculate the Lagrangian of a material point with a spring whose fixed end is at $x=0$. Assume:
+ 1. Calculate the Lagrangian of a material point with a spring whose fixed end is at $x=0$. Assume:
     * The system has one dimension $x$.
     * The spring is attached at $x=0$.
     * $k$ is the elastic constant.
     * The mass is 1 ($m=1$).
-2. Derive the equation of motion from (1).
-3. Modify functions so that they represent the equations in (2).
+ 2. Derive the equation of motion from (1).
+ 3. Modify functions so that they represent the equations in (2).
     
 ```c
 float next_coordinate_1D(float coord, float vel, float dt);
 float next_velocity_1D(float coord, float vel, float dt);
 ```
-   so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method).
-4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
-5. Change the integration method to:
+so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method).
+ 4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability.
+ 5. Change the integration method to:
 
     * [Verlet](https://en.wikipedia.org/wiki/Verlet_integration)
     * [Runge-Kutta method (2nd or 4th order).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
@@ -56,19 +56,19 @@ float next_velocity_1D(float coord, float vel, float dt);
 ## Coupled oscillators
 ### Working with [`IThPh/001/solver/solver.c`](https://github.com/Mellechowicz/IThPh/blob/master/001/solver/solver.c) and [`IThPh/001/run/particles.py`](https://github.com/Mellechowicz/IThPh/blob/master/001/run/particles.py)
 
-1. Calculate the Lagrangian of a ring of material points connected by springs. Assume:
+ 1. Calculate the Lagrangian of a ring of material points connected by springs. Assume:
     * Material points are indexed $i \in \{0, 1, ..., N-1\}$.
     * Each point $i$ interacts with its neighbors, including the first and last (i.e., $(i-1)\\%N$ and $(i+1)\\%N$).
     * The system has 2 dimensions, $x$ and $y$.
     * $k$ is the elastic constant and is the same for all springs.
     * All masses are equal to 1 ($m=1$).
-2. Derive the equation of motion from (1).
-3. Modify functions so that they represent the equations in (2).
+ 2. Derive the equation of motion from (1).
+ 3. Modify functions so that they represent the equations in (2).
 ```c
 void next_coordinate_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_coord, float dt); 
 void next_velocity_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_vel, float dt);
 ```
-4. Modify the Lagrangian, the equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and each material point, respectively.
+ 4. Modify the Lagrangian, the equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and each material point, respectively.
 
 ## Transfer workload and parallelization (optional)
 Modify the code so that Python code only defines the system, while the bulk of the code calculating EoM will be embedded in `libsolver.so`.
