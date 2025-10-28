@@ -4,7 +4,6 @@ import os
 
 # Numpy (https://numpy.org/)
 # and ctypes (https://docs.python.org/3/library/ctypes.html)
-import numpy as np
 from ctypes import c_float,cdll
 
 # Matplotlib (https://matplotlib.org/) 
@@ -20,7 +19,7 @@ dt    = 0.05
 # Define the path to the compiled C library (.so file)
 # This assumes 'libsolver.so' is in a 'solve' directory one level *up*
 # from the directory containing this Python script.
-__solver_path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'solve/libsolver.so'))
+__solver_path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'solver/libsolver.so'))
 _libsolver    = cdll.LoadLibrary(__solver_path)
 
 # === C FUNCTION PROTOTYPING ===
