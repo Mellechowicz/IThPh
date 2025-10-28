@@ -42,7 +42,7 @@ next_velocity_1D.restype    = c_float
 fig, ax = plt.subplots()
 
 # Set up the figure and axes
-points = ax.scatter(*position_velocity,c="b", s=57, label=f'simple')
+points = ax.scatter(*position_velocity,c="b", s=57)
 # Set plot limits and labels
 ax.set(xlim=[0, 3], ylim=[-1, 2], xlabel='position', ylabel='velocity')
 
