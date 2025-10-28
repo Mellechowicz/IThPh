@@ -107,8 +107,7 @@ if NUMBER_OF_PARTICLES > 1:
                     np.append(data[:, 1], data[0, 1]), lw=1)[0]
 # 'points' is a scatter plot of the particles themselves
 points = ax.scatter(data[:, 0], data[:, 1],
-                    c=[clr for clr, _ in zip(colours, range(NUMBER_OF_PARTICLES))],
-                    s=57, label=f'simple')
+                    c=[clr for clr, _ in zip(colours, range(NUMBER_OF_PARTICLES))], s=57)
 
 # === ANIMATION FUNCTION ===
 def update_frame(frame):
