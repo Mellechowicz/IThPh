@@ -43,8 +43,8 @@ pip3 install matplotlib         # Install matplotlib in the virtual environment
 ```bash
 uv venv venv_matplotlib   # Create a virtual environment
 cd venv_matplotlib        # Enter working directory
-ov pip install matplotlib # Install matplotlib in the virtual environment
 . ./bin/activate          # Activate the virtual environment above
+uv pip install matplotlib # Install matplotlib in the virtual environment
 ```
 If, at any point, you wish to deactivate this `venv_matplotlib`, just run
 ```bash
