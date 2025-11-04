@@ -32,6 +32,14 @@ In directory `IThPh/001/run` you will find two Python files
  * `particles.py` 
 
 Required external module are: `matplotlib` and `numpy`. As `matplotlib` requires `numpy`, you need only to install the first one using `pip`:
+#### Using `venv` module
+```bash
+python3 -m venv venv_matplotlib # Create a virtual environment
+. venv_matplotlib/bin/activate  # Activate the virtual environment above
+pip3 install matplotlib         # Install matplotlib in the virtual environment
+```
+
+#### Using `uv`
 ```bash
 uv venv venv_matplotlib   # Create a virtual environment
 cd venv_matplotlib        # Enter working directory
