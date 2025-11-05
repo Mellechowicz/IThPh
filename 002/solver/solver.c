@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+// const float one_sixth  = 0x1.555556p-3f; // float 1/6
+// const double one_sixth = 0x1.5555555555555p-3; // double 1/6
 float RK4(float f, float x, float dt, float(*dfdx)(float,float)){
 	const float one_sixth = 0x1.555556p-3f;
 	float k1 = dfdx(x,f);
