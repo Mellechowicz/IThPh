@@ -40,7 +40,7 @@ class Vector3D(Structure):
 
     def __repr__(self):
         """String representation for debugging."""
-        return f"({self.x:.4f}, {self.y:.4f}), {self.z:.4f})"
+        return f"({self.x:.4f}, {self.y:.4f}, {self.z:.4f})"
 
     def __call__(self, data, i):
         """
