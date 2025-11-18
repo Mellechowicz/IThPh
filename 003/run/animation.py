@@ -60,7 +60,6 @@ class Animation2D:
         # 'points' is a scatter plot of the particles themselves
         self.points = self.ax.scatter(self.data[:, 0], self.data[:, 1],
                       c=[clr for clr, _ in zip(self.colours, range(self.NUMBER_OF_PARTICLES))], s=57)
-        pass
 
     def update_frame(self, frame):
         """
