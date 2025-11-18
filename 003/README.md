@@ -79,7 +79,8 @@ deactivate
 	   void(*dfdx)(Vector3D*,Vector3D*,Vector3D*,Vector3D*,float,size_t), size_t N);`
     implement the 4th order Runge-Kutta method for 1D, 2D, and 3D systems, respectively.
     Also, functions `next_1D()`, `next_2D()`, and `next_3D()` do **not** call the corresponding RK4 functions.
- 4. Modify the functions `next_1D()`, `next_2D()`, and `next_3D()` to call the corresponding RK4 functions. Add a function with prototype `void(*f)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t);` that will compute the derivatives of position and velocity for a 2D system. 5. Modify code in `003/run/particles.py` so it uses the `Lagrangian_ToM` class to generate function from previous step and compile it "on-fly".
+ 4. Modify the function `next_2D()` to call the corresponding RK4 functions. Add a function with prototype `void(*f)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t);` that will compute the derivatives of position and velocity for a 2D system.
+ 5. Modify code in `003/run/particles.py` so it uses the `Lagrangian_ToM` class to generate function from previous step and compile it "on-fly".
 
 ### Transfer workload and parallelization (optional) 
 Modify the code so that Python code only defines the system, while the bulk of the code calculating EoM will be embedded in `libsolver.so`. Good starting point is <https://www.openmp.org/>.
