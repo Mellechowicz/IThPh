@@ -97,7 +97,7 @@ void RK4_1D(float* x, float* v, float* dx, float* dv, float t, float dt,
 void next_1D(float* coord, float* vel, float* new_coord, float* new_vel, float dt, size_t N){
 	/* Calculating new coordinates */
 	for(size_t i=0U; i<N; ++i){
-		new_coord[i] = coord[i] + RK4(coord[i],vel[i],dt,&dvdt);
+		new_coord[i] = coord[i] + RK4(coord[i],vel[i],dt,&dxdt);
 		new_vel[i] = vel[i] + RK4(coord[i],vel[i],dt,&dvdt);
 	}
 	return;
