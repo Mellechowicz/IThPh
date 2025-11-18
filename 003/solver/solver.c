@@ -123,7 +123,7 @@ typedef struct {
 
 void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float dt,
 	    void(*dfdx)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t), size_t N){
-	/* RK4 Implementation in 1D
+	/* RK4 Implementation in 2D
 	 * x = position array
 	 * v = velocity array
 	 * dx = derivative of position array
