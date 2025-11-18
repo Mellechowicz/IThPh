@@ -1,6 +1,5 @@
 # === IMPORTS ===
 # Standard library imports
-import os
 from sys import argv
 
 # Third party imports
