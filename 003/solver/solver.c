@@ -301,7 +301,7 @@ void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float
 
 
 /*
- * Calculates the next 2D coordinates and velocities
+ * Calculates the next 3D coordinates and velocities
  */
 
 void next_3D(Vector3D* coord, Vector3D* vel, Vector3D* new_coord, Vector3D* new_vel, float dt, size_t N){
