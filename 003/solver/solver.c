@@ -226,7 +226,7 @@ typedef struct {
 
 void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float dt,
 	    void(*dfdx)(Vector3D*,Vector3D*,Vector3D*,Vector3D*,float,size_t), size_t N){
-	/* RK4 Implementation in 1D
+	/* RK4 Implementation in 3D
 	 * x = position array
 	 * v = velocity array
 	 * dx = derivative of position array
