@@ -27,7 +27,6 @@ class Animation2D:
         self.colours = it.cycle(mcolors.TABLEAU_COLORS)
         self.dt = dt
         self.NUMBER_OF_PARTICLES = NUMBER_OF_PARTICLES
-        pass
 
     def set_positions(self, positions):
         self.positions = positions
