@@ -33,7 +33,7 @@ float dvdt(float t, float x){
                                                                                           
  */
 void RK4_1D(float* x, float* v, float* dx, float* dv, float t, float dt,
-	    float(*dfdx)(float*,float*,float*,float*,float,size_t), size_t N){
+	    void(*dfdx)(float*,float*,float*,float*,float,size_t), size_t N){
 	/* RK4 Implementation in 1D
 	 * x = position array
 	 * v = velocity array
@@ -121,7 +121,8 @@ typedef struct {
 	float y;
 } Vector2D;
 
-void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float dt, float(*dfdx)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t), size_t N){
+void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float dt,
+	    void(*dfdx)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t), size_t N){
 	/* RK4 Implementation in 1D
 	 * x = position array
 	 * v = velocity array
@@ -223,7 +224,8 @@ typedef struct {
 } Vector3D;
 
 
-void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float dt, float(*dfdx)(Vector3D*,Vector3D*,Vector3D*,Vector3D*,float,size_t), size_t N){
+void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float dt,
+	    void(*dfdx)(Vector3D*,Vector3D*,Vector3D*,Vector3D*,float,size_t), size_t N){
 	/* RK4 Implementation in 1D
 	 * x = position array
 	 * v = velocity array
