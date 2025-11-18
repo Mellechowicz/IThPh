@@ -9,6 +9,7 @@ import numpy as np
 # Local imports
 import cprototype as cp
 import animation as anim
+from ccompiler import CSharedLibraryCompiler
 
 # === CONSTANTS ===
 if len(argv) > 1:
@@ -27,7 +28,8 @@ dt                  = 0.01   # Timestep for the simulation
 # Define the path to the compiled C library (.so file)
 # This assumes 'libsolver.so' is in a 'solve' directory one level *up*
 # from the directory containing this Python script.
-__solver_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'solver/libsolver.so'))
+ccompiler = CSharedLibraryCompiler(source_file="../solver/solver.c")
+__solver_path = ccompiler.compile()
 _libsolver    = cp.EOMSolver(__solver_path, NUMBER_OF_PARTICLES, DIMENSIONS=2)
 
 # +== INITIAL CONDITIONS ===
