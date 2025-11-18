@@ -24,8 +24,8 @@ class CSharedLibraryCompiler:
             compiler: Command to run compiler (default: 'gcc').
             flags: List of flags. If None, defaults to optimization and strictness.
         """
-        self.source_file = Path(source_file) if source_file else None
-        self.output_dir = Path(output_dir) if output_dir else None
+        self.source_file = Path(source_file).resolve() if source_file else None
+        self.output_dir = Path(output_dir).resolve() if output_dir else None
         self.compiler = compiler
 
         # Default recommendation logic
