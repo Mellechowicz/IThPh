@@ -1,4 +1,4 @@
-from typing import List,Optional
+from typing import List
 
 import sympy as sp
 from sympy.physics.mechanics import LagrangesMethod, dynamicsymbols
