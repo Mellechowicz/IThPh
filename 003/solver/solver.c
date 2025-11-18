@@ -20,12 +20,18 @@ float dvdt(float t, float x){
 }
 
 
-// --- 1D Functions ---
-
-/*
- * Calculates the next 1D coordinates and velocities
+/* --- 1D Functions ---
+                                                                                          
+   ▄▄▄     ▄▄▄▄▄                                                                          
+  █▀██     ██▀▀▀██                                             ██                         
+    ██     ██    ██            ▄▄█████▄  ▀██  ███  ▄▄█████▄  ███████    ▄████▄   ████▄██▄ 
+    ██     ██    ██            ██▄▄▄▄ ▀   ██▄ ██   ██▄▄▄▄ ▀    ██      ██▄▄▄▄██  ██ ██ ██ 
+    ██     ██    ██             ▀▀▀▀██▄    ████▀    ▀▀▀▀██▄    ██      ██▀▀▀▀▀▀  ██ ██ ██ 
+ ▄▄▄██▄▄▄  ██▄▄▄██             █▄▄▄▄▄██     ███    █▄▄▄▄▄██    ██▄▄▄   ▀██▄▄▄▄█  ██ ██ ██ 
+ ▀▀▀▀▀▀▀▀  ▀▀▀▀▀                ▀▀▀▀▀▀      ██      ▀▀▀▀▀▀      ▀▀▀▀     ▀▀▀▀▀   ▀▀ ▀▀ ▀▀ 
+                                          ███                                             
+                                                                                          
  */
-
 void RK4_1D(float* x, float* v, float* dx, float* dv, float t, float dt,
 	    float(*dfdx)(float*,float*,float*,float*,float,size_t), size_t N){
 	/* RK4 Implementation in 1D
@@ -85,6 +91,9 @@ void RK4_1D(float* x, float* v, float* dx, float* dv, float t, float dt,
 	return;
 }
 
+/*
+ * Calculates the next 1D coordinates and velocities
+ */
 void next_1D(float* coord, float* vel, float* new_coord, float* new_vel, float dt, size_t N){
 	/* Calculating new coordinates */
 	for(size_t i=0U; i<N; ++i){
@@ -95,8 +104,18 @@ void next_1D(float* coord, float* vel, float* new_coord, float* new_vel, float d
 }
 
 
-// --- 2D Structures and Functions ---
-
+/* --- 2D Structures and Functions ---
+                                                                                          
+  ▄▄▄▄▄    ▄▄▄▄▄                                                                          
+ █▀▀▀▀██▄  ██▀▀▀██                                             ██                         
+       ██  ██    ██            ▄▄█████▄  ▀██  ███  ▄▄█████▄  ███████    ▄████▄   ████▄██▄ 
+     ▄█▀   ██    ██            ██▄▄▄▄ ▀   ██▄ ██   ██▄▄▄▄ ▀    ██      ██▄▄▄▄██  ██ ██ ██ 
+   ▄█▀     ██    ██             ▀▀▀▀██▄    ████▀    ▀▀▀▀██▄    ██      ██▀▀▀▀▀▀  ██ ██ ██ 
+ ▄██▄▄▄▄▄  ██▄▄▄██             █▄▄▄▄▄██     ███    █▄▄▄▄▄██    ██▄▄▄   ▀██▄▄▄▄█  ██ ██ ██ 
+ ▀▀▀▀▀▀▀▀  ▀▀▀▀▀                ▀▀▀▀▀▀      ██      ▀▀▀▀▀▀      ▀▀▀▀     ▀▀▀▀▀   ▀▀ ▀▀ ▀▀ 
+                                          ███                                             
+                                                                                          
+*/
 typedef struct {
 	float x;
 	float y;
@@ -114,6 +133,8 @@ void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float
 	 * arguments of dfdx: (x, v, dx, dv, t, N)
 	 * N = number of elements
 	 */
+
+	// Temporary arrays
 	const float one_sixth = 0x1.555556p-3f;
 	size_t size = N * sizeof(Vector2D);
 	Vector2D* tmp_x = malloc(size);
@@ -125,6 +146,7 @@ void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float
 	Vector2D* k3_dx = malloc(size); Vector2D* k3_dv = malloc(size);
 	Vector2D* k4_dx = malloc(size); Vector2D* k4_dv = malloc(size);
 
+	// Calculate k1, k2, k3, k4
 	dfdx(x,v,k1_dx,k1_dv,t,N);
 	for(size_t i=0U; i<N; ++i){
 		tmp_x[i].x = x[i].x + 0.5f * dt * k1_dx[i].x;
@@ -148,6 +170,7 @@ void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float
 	}
 	dfdx(tmp_x,tmp_v,k4_dx,k4_dv,t+dt,N);
 
+	// Combine to get final dx and dv
 	for(size_t i=0U; i<N; ++i){
 		dx[i].x = one_sixth * (k1_dx[i].x + 2.0f * k2_dx[i].x + 2.0f * k3_dx[i].x + k4_dx[i].x);
 		dx[i].y = one_sixth * (k1_dx[i].y + 2.0f * k2_dx[i].y + 2.0f * k3_dx[i].y + k4_dx[i].y);
@@ -181,7 +204,17 @@ void next_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_coord, Vector2D* new_
 	return;
 }
 
-// --- 3D Structures and Functions ---
+/* --- 3D Structures and Functions ---
+                                                                                          
+  ▄▄▄▄▄    ▄▄▄▄▄                                                                          
+ █▀▀▀▀██▄  ██▀▀▀██                                             ██                         
+      ▄██  ██    ██            ▄▄█████▄  ▀██  ███  ▄▄█████▄  ███████    ▄████▄   ████▄██▄ 
+   █████   ██    ██            ██▄▄▄▄ ▀   ██▄ ██   ██▄▄▄▄ ▀    ██      ██▄▄▄▄██  ██ ██ ██ 
+      ▀██  ██    ██             ▀▀▀▀██▄    ████▀    ▀▀▀▀██▄    ██      ██▀▀▀▀▀▀  ██ ██ ██ 
+ █▄▄▄▄██▀  ██▄▄▄██             █▄▄▄▄▄██     ███    █▄▄▄▄▄██    ██▄▄▄   ▀██▄▄▄▄█  ██ ██ ██ 
+  ▀▀▀▀▀    ▀▀▀▀▀                ▀▀▀▀▀▀      ██      ▀▀▀▀▀▀      ▀▀▀▀     ▀▀▀▀▀   ▀▀ ▀▀ ▀▀ 
+                                          ███                                             
+*/
 
 typedef struct {
 	float x;
@@ -191,6 +224,19 @@ typedef struct {
 
 
 void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float dt, float(*dfdx)(Vector3D*,Vector3D*,Vector3D*,Vector3D*,float,size_t), size_t N){
+	/* RK4 Implementation in 1D
+	 * x = position array
+	 * v = velocity array
+	 * dx = derivative of position array
+	 * dv = derivative of velocity array
+	 * t = current time
+	 * dt = time step
+	 * dfdx = function that computes derivatives
+	 * arguments of dfdx: (x, v, dx, dv, t, N)
+	 * N = number of elements
+	 */
+
+	// Temporary arrays
 	const float one_sixth = 0x1.555556p-3f;
 	size_t size = N * sizeof(Vector3D);
 	Vector3D* tmp_x = malloc(size);
@@ -202,6 +248,7 @@ void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float
 	Vector3D* k3_dx = malloc(size); Vector3D* k3_dv = malloc(size);
 	Vector3D* k4_dx = malloc(size); Vector3D* k4_dv = malloc(size);
 
+	// Calculate k1, k2, k3, k4
 	dfdx(x,v,k1_dx,k1_dv,t,N);
 	for(size_t i=0U; i<N; ++i){
 		tmp_x[i].x = x[i].x + 0.5f * dt * k1_dx[i].x;
@@ -231,6 +278,7 @@ void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float
 	}
 	dfdx(tmp_x,tmp_v,k4_dx,k4_dv,t+dt,N);
 
+	// Combine to get final dx and dv
 	for(size_t i=0U; i<N; ++i){
 		dx[i].x = one_sixth * (k1_dx[i].x + 2.0f * k2_dx[i].x + 2.0f * k3_dx[i].x + k4_dx[i].x);
 		dx[i].y = one_sixth * (k1_dx[i].y + 2.0f * k2_dx[i].y + 2.0f * k3_dx[i].y + k4_dx[i].y);
