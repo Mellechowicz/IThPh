@@ -100,8 +100,8 @@ class Animation2D:
 
         # Update the connecting lines (if they exist)
         if self.NUMBER_OF_PARTICLES > 1:
-            self.lines.set_xself.data(np.append(self.data[:, 0], self.data[0, 0]))
-            self.lines.set_yself.data(np.append(self.data[:, 1], self.data[0, 1]))
+            self.lines.set_xdata(np.append(self.data[:, 0], self.data[0, 0]))
+            self.lines.set_ydata(np.append(self.data[:, 1], self.data[0, 1]))
 
     def run_animation(self,frames=60,interval=30):
         self.ani = animation.FuncAnimation(fig=self.fig, func=self.update_frame,

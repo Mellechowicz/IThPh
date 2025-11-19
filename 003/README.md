@@ -3,13 +3,23 @@
 ## Preparing workspace 
 
 ### Downloading repository 
-Let's start by cloning this `git` repository:
+If you have not done so yet, please start by cloning this `git` repository:
 ```bash
 git clone https://github.com/Mellechowicz/IThPh.git
 ```
 Now move to the directory and check the branch (`master`)
 ```bash
 cd IThPh && git branch
+```
+
+Otherwise, just pull the latest changes:
+```bash
+git pull origin master
+```
+
+If you have any conflicts: either move changes to a separate branch or stash them:
+```bash
+git stash
 ```
 All files for this class are in the directory "IThPh/003".
 
