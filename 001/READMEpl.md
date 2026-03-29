@@ -1,4 +1,5 @@
 # Zajęcia laboratoryjne 001 - Równania ruchu w formalizmie Lagrange'a 
+English version in [`README.md`](https://github.com/Mellechowicz/IThPh/blob/master/001/README.md).
 
 ## Przygotowanie środowiska pracy 
 

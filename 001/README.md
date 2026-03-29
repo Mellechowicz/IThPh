@@ -1,4 +1,5 @@
 # Laboratory class 001 - Equations of Motion in Lagrange's Formalism 
+Wersja po polsku w pliku [`READMEpl.md`](https://github.com/Mellechowicz/IThPh/blob/master/001/READMEpl.md).
 
 ## Preparing workspace 
 
