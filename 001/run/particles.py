@@ -128,10 +128,12 @@ def update_frame(frame):
         # 1. Calculate the new position
         #    C signature: next_coordinate_2D(IN pos, IN vel, OUT new_pos, IN dt)
         next_coordinate_2D(byref(_position), byref(_velocity), byref(new_position), dt)
+
+        relative_position = new_position
         
         # 2. Calculate the new velocity
-        #    C signature: next_velocity_2D(IN new_pos, IN old_vel, OUT new_vel, IN dt)
-        next_velocity_2D(byref(new_position), byref(_velocity), byref(new_velocity), dt)
+        #    C signature: next_velocity_2D(IN _pos, IN old_vel, OUT new_vel, IN dt)
+        next_velocity_2D(byref(relative_position), byref(_velocity), byref(new_velocity), dt)
 
         # 3. Update the master Python lists with the new state
         positions[i]  = new_position

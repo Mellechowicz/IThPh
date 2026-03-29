@@ -86,18 +86,7 @@ deactivate
     * $k$ to współczynnik sprężystości, który jest taki sam dla wszystkich sprężyn. 
     * Wszystkie masy są równe 1 ($m=1$). 
  2. Wyprowadź z (1) równanie ruchu. 
- 3. Zmodyfikuj funkcję tak, aby reprezentowała równania z (2). Zamiast operować na pojedynczych cząstkach, funkcja powinna przyjmować i przetwarzać całe tablice punktów, aby poprawnie obliczać oddziaływania z sąsiadami w jednym kroku czasowym: 
-```c
-typedef struct {
-    float x;
-    float y;
-} Vector2D;
-
-void compute_step_2D(Vector2D* coords, Vector2D* vels, 
-                     Vector2D* next_coords, Vector2D* next_vels, 
-                     float* k_array, float* m_array, 
-                     int N, float dt, float l0);
-```
+ 3. Zmodyfikuj kod `particles.py` tak, żeby przekazywał położenie względne do `next_velocity_2D`, a ta z kolei reprezentowała równania z (2). 
  4. Zmodyfikuj lagranżjan, równania ruchu i plik `solver.c` tak, aby móc zdefiniować współczynniki sprężystości $k_i$ oraz masy $m_i$ odpowiednio dla każdej sprężyny i każdego punktu materialnego. 
 
 ### Przeniesienie obciążenia i zrównoleglenie (opcjonalnie) 
