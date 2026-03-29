@@ -1,4 +1,5 @@
 # Laboratory class 001 - Equations of Motion in Lagrange's Formalism 
+Wersja po polsku w pliku [`READMEpl.md`](https://github.com/Mellechowicz/IThPh/blob/master/001/READMEpl.md).
 
 ## Preparing workspace 
 
@@ -67,7 +68,7 @@ deactivate
    float next_coordinate_1D(float coord, float vel, float dt);
    float next_velocity_1D(float coord, float vel, float dt);
    ```
-   so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method). 
+   so they calculate new coordinates and velocities using [Euler method](https://en.wikipedia.org/wiki/Euler_method). Concider how to pass $k$ to C, so it is not in the parameters?
 
  4. Increase `dt` in `single_particle.py` and discuss the algorithm's stability. 
  5. Change the integration method to: 
