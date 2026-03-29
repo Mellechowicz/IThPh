@@ -6,7 +6,7 @@ English version in [`README.md`](https://github.com/Mellechowicz/IThPh/blob/mast
 ### Pobieranie repozytorium 
 Zacznijmy od sklonowania tego repozytorium `git`:
 ```bash
-git clone [https://github.com/Mellechowicz/IThPh.git](https://github.com/Mellechowicz/IThPh.git)
+git clone https://github.com/Mellechowicz/IThPh.git
 ```
 Następnie przejdź do katalogu i sprawdź gałąź (`master`):
 ```bash
@@ -66,7 +66,7 @@ deactivate
  3. Zmodyfikuj funkcje tak, aby reprezentowały równania z punktu (2):
    ```c
    float next_coordinate_1D(float coord, float vel, float dt);
-   float next_velocity_1D(float coord, float vel, float dt, float k, float m);
+   float next_velocity_1D(float coord, float vel, float dt);
    ```
    aby obliczały nowe współrzędne i prędkości przy użyciu [metody Eulera](https://pl.wikipedia.org/wiki/Metoda_Eulera). *Wskazówka*: Zastanów się, dlaczego do obliczenia nowej prędkości potrzebne są parametry $k$ i $m$. Zastanów się, jak do C przekazać stałą $k$, jeśli nie ma jej w parametrach, i poprawnie zaktualizuj sygnaturę
 
