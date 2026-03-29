@@ -68,7 +68,7 @@ deactivate
    float next_coordinate_1D(float coord, float vel, float dt);
    float next_velocity_1D(float coord, float vel, float dt, float k, float m);
    ```
-   aby obliczały nowe współrzędne i prędkości przy użyciu [metody Eulera](https://pl.wikipedia.org/wiki/Metoda_Eulera). *Wskazówka*: Zastanów się, dlaczego do obliczenia nowej prędkości potrzebne są parametry $k$ i $m$.
+   aby obliczały nowe współrzędne i prędkości przy użyciu [metody Eulera](https://pl.wikipedia.org/wiki/Metoda_Eulera). *Wskazówka*: Zastanów się, dlaczego do obliczenia nowej prędkości potrzebne są parametry $k$ i $m$. Zastanów się, jak do C przekazać stałą $k$, jeśli nie ma jej w parametrach, i poprawnie zaktualizuj sygnaturę
 
  4. Zwiększ wartość `dt` w pliku `single_particle.py` i przedyskutuj stabilność algorytmu (klasyczna, jawna metoda Eulera dla oscylatora harmonicznego jest bezwarunkowo niestabilna). 
  5. Zmień metodę całkowania na: 
