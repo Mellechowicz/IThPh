@@ -24,7 +24,7 @@ git stash && git switch master
 ```
 zapisać zmiany na nowej gałęzi
 ```bash
-git checkout -b nowa_galaz && git add . -A && git commit -m "Moj opis" && git switch master && git reset --hard && git pull
+git checkout -b nowa_galaz && git add -A . && git commit -m "Moj opis" && git switch master && git reset --hard && git pull
 ```
 lub usunąć wszystkie zmiany
 ```bash
