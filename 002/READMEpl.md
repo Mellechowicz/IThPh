@@ -14,7 +14,7 @@ cd IThPh && git branch
 ```
 
 ### Aktualizacja
-Jeżeli repozytorum jest już _ściągnięte_, wystarczy przejść do katalogu i wykonać polecenie
+Jeżeli repozytorium jest już _ściągnięte_, wystarczy przejść do katalogu i wykonać polecenie
 ```bash
 git pull
 ```
