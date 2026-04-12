@@ -68,12 +68,12 @@ deactivate
    float next_coordinate_1D(float coord, float vel, float dt);
    float next_velocity_1D(float coord, float vel, float dt);
    ```
-   aby obliczały nowe współrzędne i prędkości przy użyciu [metody Eulera](https://pl.wikipedia.org/wiki/Metoda_Eulera). *Wskazówka*: Zastanów się, dlaczego do obliczenia nowej prędkości potrzebne są parametry $k$ i $m$. Zastanów się, jak do C przekazać stałą $k$, jeśli nie ma jej w parametrach, i poprawnie zaktualizuj sygnaturę
+   aby obliczały nowe współrzędne i prędkości przy użyciu [metody Eulera](https://en.wikipedia.org/wiki/Euler_method). *Wskazówka*: Zastanów się, dlaczego do obliczenia nowej prędkości potrzebne są parametry $k$ i $m$. Zastanów się, jak do C przekazać stałą $k$, jeśli nie ma jej w parametrach, i poprawnie zaktualizuj sygnaturę
 
  4. Zwiększ wartość `dt` w pliku `single_particle.py` i przedyskutuj stabilność algorytmu (klasyczna, jawna metoda Eulera dla oscylatora harmonicznego jest bezwarunkowo niestabilna). 
  5. Zmień metodę całkowania na: 
-    * [Algorytm Verlet](https://pl.wikipedia.org/wiki/Algorytm_Verleta) 
-    * [Metodę Rungego-Kutty (2. lub 4. rzędu).](https://pl.wikipedia.org/wiki/Metody_Rungego-Kutty) 
+    * [Algorytm Verlet'](https://en.wikipedia.org/wiki/Verlet_integration) 
+    * [Metodę Rungego-Kutty (2. lub 4. rzędu).](https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods)
 
 ### Sprzężone oscylatory 
 #### Praca z plikami `IThPh/001/solver/solver.c` i `IThPh/001/run/particles.py` 
