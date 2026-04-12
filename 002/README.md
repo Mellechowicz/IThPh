@@ -21,17 +21,17 @@ In directory `IThPh/002/solver` you can find the source file `solver.c`, which c
 gcc -pedantic -Wall -c -std=c23 -fPIC solver.c -o solver.o
 ```
 then 
-2. Then create the shared library `libsolver.so`: 
+2. create the shared library `libsolver.so`: 
 ```bash
 gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o
 ```
 
 ### Python framework 
-In directory `IThPh/001/run` you will find two Python files
+In directory `IThPh/002/run` you will find two Python files
  * `single_particle.py` 
  * `particles.py` 
 
-Required external module are: `matplotlib` and `numpy`. As `matplotlib` requires `numpy`, you need only to install the first one using `pip`:
+Required external modules are: `matplotlib` and `numpy`. As `matplotlib` requires `numpy`, you need only to install the first one using `pip`:
 #### Using `venv` module
 ```bash
 python3 -m venv venv_matplotlib # Create a virtual environment
@@ -61,9 +61,9 @@ deactivate
     * Each point $i$ interacts with its neighbors, including the first and last (i.e., $(i-1)\\%N$ and $(i+1)\\%N$). 
     * The system has 2 dimensions, $x$ and $y$. 
     * $k$ is the elastic constant and is the same for all springs.
-    * Each spring has (the same) equilibruim length $l$.
+    * Each spring has (the same) equilibrium length $l$.
     * All masses are equal to 1 ($m=1$).
- 2. Using [SymPy](https://docs.sympy.org/latest/tutorials/physics/mechanics/index.html) calculate the equation of motion. Example for a pendulum is in [`IthPh/002/run/example_sympy.py`](https://github.com/Mellechowicz/IThPh/blob/master/002/run/example_sympy.py).
+ 2. Using [SymPy](https://docs.sympy.org/latest/tutorials/physics/mechanics/index.html) calculate the equation of motion. Example for a pendulum is in [`IThPh/002/run/example_sympy.py`](https://github.com/Mellechowicz/IThPh/blob/master/002/run/example_sympy.py).
  3. Modify functions so that they represent the equations in (2). 
 ```c
 void next_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_coord, Vector2D* new_vel, float dt, size_t N);
@@ -71,7 +71,7 @@ float dxdt(float t, float x);
 float dydt(float t, float x);
 ```
  4. Modify the Lagrangian, the equations of motion, and `solver.c`, so that elastic constants $k_i$ and masses $m_i$ can be defined for each spring and each material point, respectively. 
- 5. Create a function **in Python** so that file `solver.c` is being rewritten, and the dunctions
+ 5. Create a function **in Python** so that file `solver.c` is being rewritten, and the functions
 ```c
 float dxdt(float t, float x);
 float dydt(float t, float x);
