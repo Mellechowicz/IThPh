@@ -97,8 +97,8 @@ void RK4_1D(float* x, float* v, float* dx, float* dv, float t, float dt,
 void next_1D(float* coord, float* vel, float* new_coord, float* new_vel, float dt, size_t N){
 	/* Calculating new coordinates */
 	for(size_t i=0U; i<N; ++i){
-		new_coord[i] = coord[i] + RK4(coord[i],vel[i],dt,&dxdt);
-		new_vel[i] = vel[i] + RK4(coord[i],vel[i],dt,&dvdt);
+		new_coord[i] = coord[i] + dt*RK4(coord[i],vel[i],dt,&dxdt);
+		new_vel[i] = vel[i] + dt*RK4(coord[i],vel[i],dt,&dvdt);
 	}
 	return;
 }
@@ -196,11 +196,11 @@ void RK4_2D(Vector2D* x, Vector2D* v, Vector2D* dx, Vector2D* dv, float t, float
 void next_2D(Vector2D* coord, Vector2D* vel, Vector2D* new_coord, Vector2D* new_vel, float dt, size_t N){
 	/* Calculating new coordinates */
 	for(size_t i=0U; i<N; ++i){
-		new_coord[i].x = coord[i].x + RK4(coord[i].x,vel[i].x,dt,&dxdt);
-		new_coord[i].y = coord[i].y + RK4(coord[i].y,vel[i].y,dt,&dxdt);
+		new_coord[i].x = coord[i].x + dt*RK4(coord[i].x,vel[i].x,dt,&dxdt);
+		new_coord[i].y = coord[i].y + dt*RK4(coord[i].y,vel[i].y,dt,&dxdt);
 
-		new_vel[i].x = vel[i].x + RK4(coord[i].x,vel[i].x,dt,&dvdt);
-		new_vel[i].y = vel[i].y + RK4(coord[i].y,vel[i].y,dt,&dvdt);
+		new_vel[i].x = vel[i].x + dt*RK4(coord[i].x,vel[i].x,dt,&dvdt);
+		new_vel[i].y = vel[i].y + dt*RK4(coord[i].y,vel[i].y,dt,&dvdt);
 	}
 	return;
 }
@@ -307,13 +307,13 @@ void RK4_3D(Vector3D* x, Vector3D* v, Vector3D* dx, Vector3D* dv, float t, float
 void next_3D(Vector3D* coord, Vector3D* vel, Vector3D* new_coord, Vector3D* new_vel, float dt, size_t N){
 	/* Calculating new coordinates */
 	for(size_t i=0U; i<N; ++i){
-		new_coord[i].x = coord[i].x + RK4(coord[i].x,vel[i].x,dt,&dxdt);
-		new_coord[i].y = coord[i].y + RK4(coord[i].y,vel[i].y,dt,&dxdt);
-		new_coord[i].z = coord[i].z + RK4(coord[i].z,vel[i].z,dt,&dxdt);
+		new_coord[i].x = coord[i].x + dt*RK4(coord[i].x,vel[i].x,dt,&dxdt);
+		new_coord[i].y = coord[i].y + dt*RK4(coord[i].y,vel[i].y,dt,&dxdt);
+		new_coord[i].z = coord[i].z + dt*RK4(coord[i].z,vel[i].z,dt,&dxdt);
 
-		new_vel[i].x = vel[i].x + RK4(coord[i].x,vel[i].x,dt,&dvdt);
-		new_vel[i].y = vel[i].y + RK4(coord[i].y,vel[i].y,dt,&dvdt);
-		new_vel[i].z = vel[i].z + RK4(coord[i].z,vel[i].z,dt,&dvdt);
+		new_vel[i].x = vel[i].x + dt*RK4(coord[i].x,vel[i].x,dt,&dvdt);
+		new_vel[i].y = vel[i].y + dt*RK4(coord[i].y,vel[i].y,dt,&dvdt);
+		new_vel[i].z = vel[i].z + dt*RK4(coord[i].z,vel[i].z,dt,&dvdt);
 	}
 	return;
 }
