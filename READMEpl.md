@@ -85,7 +85,7 @@ deactivate
     implementują metodę Rungego-Kutty 4. rzędu odpowiednio dla układów 1D, 2D i 3D.
     Ponadto funkcje `next_1D()`, `next_2D()` i `next_3D()` **nie** wywołują odpowiadających im funkcji RK4.
  4. Zmodyfikuj funkcję `next_2D()` tak, aby wywoływała odpowiednie funkcje RK4. Dodaj funkcję z prototypem `void(*f)(Vector2D*,Vector2D*,Vector2D*,Vector2D*,float,size_t);`, która będzie obliczać pochodne na podstawie równań ruchu wyprowadzonych z lagranżjanu.
- 5. Zmodyfikuj kod w `003/run/particles.py` tak, aby używał klasy `Lagrangian_ToC` do generowania funkcji z poprzedniego kroku i kompilował ją „w locie".
+ 5. Zmodyfikuj kod w `003/run/particles.py` tak, aby używał klasy `LagrangianToC` do generowania funkcji z poprzedniego kroku i kompilował ją „w locie".
 
 ### Przeniesienie obciążenia obliczeniowego i zrównoleglenie (opcjonalne)
 Zmodyfikuj kod tak, aby kod Pythona jedynie definiował układ, natomiast zasadnicza część kodu obliczającego równania ruchu była osadzona w `libsolver.so`. Dobrym punktem wyjścia jest <https://www.openmp.org/>.
