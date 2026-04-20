@@ -32,19 +32,6 @@ git switch master && git reset --hard && git pull
 ```
 Wszystkie pliki na te zajęcia znajdują się w katalogu `IThPh/003`.
 
-### Kompilacja biblioteki C
-W katalogu `IThPh/003/solver` znajduje się plik źródłowy `solver.c` zawierający funkcje, z którymi będziesz pracować. Do kompilacji możesz użyć GCC (<https://gcc.gnu.org/>).
-
-1. Najpierw skompiluj plik źródłowy `solver.c`:
-```bash
-gcc -pedantic -Wall -c -std=c23 -fPIC solver.c -o solver.o
-```
-następnie
-2. Utwórz bibliotekę współdzieloną `libsolver.so`:
-```bash
-gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o
-```
-
 ### Środowisko Python
 W katalogu `IThPh/003/run` znajdziesz pliki Pythona:
  - `particles.py`
@@ -53,6 +40,7 @@ W katalogu `IThPh/003/run` znajdziesz pliki Pythona:
  - `cprototype.py`
  - `lagrangian.py`
 
+**Poniższe polecenia mają zastosowanie tylko przy pracy na stanowiskach niepracownianych.**
 Wymagane zewnętrzne moduły to: `matplotlib` i `numpy`. Ponieważ `matplotlib` wymaga `numpy`, wystarczy zainstalować tylko ten pierwszy za pomocą `pip`:
 
 #### Używając modułu `venv`
