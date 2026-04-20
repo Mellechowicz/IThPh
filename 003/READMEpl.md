@@ -1,4 +1,4 @@
-# Zajęcia laboratoryjne 003 – Równania ruchu w formalizmie Lagrange'a w SymPy
+# Laboratorium 003 – Równania ruchu w formalizmie Lagrange'a w SymPy
 Wersja angielska w pliku [`README.md`](https://github.com/Mellechowicz/IThPh/blob/master/003/README.md).
 
 ## Przygotowanie środowiska pracy
