@@ -157,6 +157,8 @@ if __name__ == "__main__":
     y2 = y1 - l2 * sp.cos(q2)
 
     # Kinetic Energy
+    # dynmicsymbols._t is the time variable used by sympy.physics.mechanics
+    # We can think of it as sp.Symbol('t') but it's a special symbol that sympy uses to track time derivatives!
     v1_sq = x1.diff(dynamicsymbols._t)**2 + y1.diff(dynamicsymbols._t)**2
     v2_sq = x2.diff(dynamicsymbols._t)**2 + y2.diff(dynamicsymbols._t)**2
 
