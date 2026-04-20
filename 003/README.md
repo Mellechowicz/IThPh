@@ -1,4 +1,5 @@
 # Laboratory class 003 - Equations of Motion in Lagrange's Formalism in SymPy
+Wersja po polsku w pliku [`READMEpl.md`](https://github.com/Mellechowicz/IThPh/blob/master/003/READMEpl.md).
 
 ## Preparing workspace 
 
