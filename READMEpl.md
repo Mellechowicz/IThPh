@@ -29,7 +29,7 @@ lub usunąć wszystkie zmiany
 ```bash
 git switch master && git reset --hard && git pull
 ```
-Wszystkie pliki na te zajęcia znajdują się w katalogu „IThPh/003".
+Wszystkie pliki na te zajęcia znajdują się w katalogu `IThPh/003`.
 
 ### Środowisko Python
 W katalogu `IThPh/003/run` znajdziesz pliki Pythona:
