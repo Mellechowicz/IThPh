@@ -1,4 +1,5 @@
 # Zajęcia laboratoryjne 003 – Równania ruchu w formalizmie Lagrange'a w SymPy
+Wersja angielska w pliku [`README.md`](https://github.com/Mellechowicz/IThPh/blob/master/003/README.md).
 
 ## Przygotowanie środowiska pracy
 
@@ -30,6 +31,19 @@ lub usunąć wszystkie zmiany
 git switch master && git reset --hard && git pull
 ```
 Wszystkie pliki na te zajęcia znajdują się w katalogu `IThPh/003`.
+
+### Kompilacja biblioteki C
+W katalogu `IThPh/003/solver` znajduje się plik źródłowy `solver.c` zawierający funkcje, z którymi będziesz pracować. Do kompilacji możesz użyć GCC (<https://gcc.gnu.org/>).
+
+1. Najpierw skompiluj plik źródłowy `solver.c`:
+```bash
+gcc -pedantic -Wall -c -std=c23 -fPIC solver.c -o solver.o
+```
+następnie
+2. Utwórz bibliotekę współdzieloną `libsolver.so`:
+```bash
+gcc -std=c23 -shared -Wl,-soname,libsolver.so -o libsolver.so solver.o
+```
 
 ### Środowisko Python
 W katalogu `IThPh/003/run` znajdziesz pliki Pythona:
@@ -97,4 +111,3 @@ Ten kod był testowany na Debianie 13 przy użyciu:
  - numpy 2.2.4,
  - matplotlib 3.10.1+dfsg1,
  - SymPy 1.13.3
-
